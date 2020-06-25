@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>Quote of the Day</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+        var imagesArr = ["images/nature1.jpg", "images/nature2.jpg", "images/nature3.jfif", "images/nature4.jpg", "images/nature5.jpg", "images/nature6.jfif",
+            "images/nature7.jpeg", "images/nature8.jpg", "images/nature9.jfif", "images/nature10.jfif"];
+
+        var quotesArr = [];
+        quotesArr[0] = "The best preparation for tomorrow is doing your best today.";
+        quotesArr[1] = "Push yourself,because no one else is going to do it for you.";
+        quotesArr[2] = "Sometimes later becomes never.Do it now.";
+        quotesArr[3] = "The harder you work for something ,the greater you'll feel when you achieve it.";
+        quotesArr[4] = "Don't stop when you're tired.Stop when you're done.";
+        quotesArr[5] = "People who are crazy enough to think they can change the world,are the ones who do.";
+        quotesArr[6] = "Don't let yesterday take up too much of today.";
+        quotesArr[7] = "You learn more from failure than from success.Don't let it stop you.Failure builds character.";
+        quotesArr[8] = "Do one thing every day that scares you.";
+        quotesArr[9] = "Hold the vision,trust the process.";
+        quotesArr[10] = "Work hard in silence,let your success be the noise.";
+        quotesArr[11] = "Hard work beats talent when talent doesn't work hard.";
+        quotesArr[12] = "If you cannot do great things,do small things in a great way.";
+
+
+        function displayDetails() {
+            var randomImage = Math.floor(Math.random() * (imagesArr.length ));
+            var randomQuote = Math.floor(Math.random() * (quotesArr.length ));
+
+            document.getElementById("background").src = imagesArr[randomImage];
+            document.getElementById("quote").innerHTML = quotesArr[randomQuote];
+
+        }
+        /*function previousbtn() {
+            displayDetails();
+        }*/
+        function nextbtn() {
+            displayDetails();
+        }
+        
+
+        var countDownDate = new Date("Jan 5, 2021 24:00:00").getTime();
+
+
+  var x = setInterval(function() {
+
+  
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("demo").innerHTML = hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+ 
+    </script>
+</head>
+
+<body onload="displayDetails();">
+    <div class="container">
+    <div id="main">
+        <table>
+            <tr>
+                <td>
+                    <a href="#" class="next round" onclick="nextbtn()">&#8249;</a>
+
+                </td>
+                <td>
+                    <h2 align="center"> Quote of the Day</h2>
+                    <img id="background" />
+                    <div id="quote"></div>
+                </td>
+                <td>
+                    
+                    <a href="#" class="previous round" onclick="previousbtn()">&#8250;</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</body>
+</html>
